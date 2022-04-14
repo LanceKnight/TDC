@@ -144,6 +144,7 @@ yield_dataset_names = ['uspto_yields', 'buchwald-hartwig']
 
 catalyst_dataset_names = ['uspto_catalyst']
 
+tcr_epi_dataset_names = ['weber']
 
 ####################################
 # generation
@@ -181,8 +182,8 @@ evaluator_name.extend(distribution_oracles)
 
 guacamol_oracle = ['rediscovery', 'similarity', 'median', 'isomers', 'mpo', 'hop', \
 				   'celecoxib_rediscovery', 'troglitazone_rediscovery', 'thiothixene_rediscovery', \
-				   'aripiprazole_similarity', 'albuterol_similarity', 'mestranol_similarity', 
-				   'isomers_c7h8n2o2', 'isomers_c9h10n2o2pf2cl', \
+				   'aripiprazole_similarity', 'albuterol_similarity', 'mestranol_similarity', \
+				   'isomers_c7h8n2o2', 'isomers_c9h10n2o2pf2cl', 'isomers_c11h24', \
 				   'osimertinib_mpo', 'fexofenadine_mpo', 'ranolazine_mpo', 'perindopril_mpo', \
 				   'amlodipine_mpo', 'sitagliptin_mpo', 'zaleplon_mpo', \
 				   'median1', 'median2', \
@@ -330,7 +331,7 @@ download_receptor_oracle_name = ['1iep_docking', '2rgp_docking', '3eml_docking',
 
 
 
-meta_oracle_name = ['isomer_meta', 'rediscovery_meta', 'similarity_meta', 'median_meta', 'docking_score', 'molecule_one_synthesis']
+meta_oracle_name = ['isomer_meta', 'rediscovery_meta', 'similarity_meta', 'median_meta', 'docking_score', 'molecule_one_synthesis', 'pyscreener']
 
 oracle_names = download_oracle_names + trivial_oracle_names + distribution_oracles + synthetic_oracle_name + meta_oracle_name + download_receptor_oracle_name 
 
@@ -358,7 +359,8 @@ category_names = {'single_pred': ["Tox",
 								"DrugSyn",
 								"MTI",
 								"GDA",
-								"Catalyst"],
+								"Catalyst",
+								"TCR_Epitope_Binding"],
 				'generation': ["RetroSyn",
 								"Reaction",
 								"MolGen"
@@ -395,7 +397,8 @@ dataset_names = {"Tox": toxicity_dataset_names,
 				"Catalyst": catalyst_dataset_names, 
 				"CRISPROutcome": crisproutcome_dataset_names,
 				"test_single_pred": test_single_pred_dataset_names,
-				"test_multi_pred": test_multi_pred_dataset_names
+				"test_multi_pred": test_multi_pred_dataset_names,
+				"TCREpitopeBinding": tcr_epi_dataset_names
 				}
 
 benchmark_names = {"admet_group": admet_benchmark,
@@ -500,7 +503,8 @@ name2type = {'toxcast': 'tab',
  'leenay':'tab',
  'test_single_pred': 'tab',
  'test_multi_pred': 'tab',
- 'gdsc_gene_symbols': 'tab'}
+ 'gdsc_gene_symbols': 'tab',
+ 'weber': 'tab'}
 
 name2id = {'bbb_adenot': 4259565,
  'bbb_martins': 4259566,
@@ -558,7 +562,7 @@ name2id = {'bbb_adenot': 4259565,
  'pdb_jespersen': 4165724,
  'qm7b': 4167096,
  'qm8': 4167110,
- 'qm9': 4167112,
+ 'qm9': 6175612, ### 4167112,
  'tap': 4167113,
  'sabdab_chen': 4167164,
  'protein_sabdab': 4167357,
@@ -567,7 +571,7 @@ name2id = {'bbb_adenot': 4259565,
  'disgenet': 4168282,
  'sabdab_liberis': 4168425,
  'uspto50k': 4171823,
- 'buchwald-hartwig': 4186955,
+ 'buchwald-hartwig': 6175640,
  'uspto_yields': 4186956, 
  'uspto_catalyst': 4171574,
  'uspto': 4171642, 
@@ -586,7 +590,8 @@ name2id = {'bbb_adenot': 4259565,
  'leenay':4279966,
  'test_single_pred': 4832455,
  'test_multi_pred': 4832456,
- 'gdsc_gene_symbols': 5255026}
+ 'gdsc_gene_symbols': 5255026,
+ 'weber': 5790963}
 
 oracle2type = {'drd2': 'pkl', 
 			   'jnk3': 'pkl', 
